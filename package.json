@@ -1,0 +1,33 @@
+{
+  "name": "action-TBD",
+  "version": "0.0.0",
+  "description": "TBD",
+  "main": "dist/index.js",
+  "scripts": {
+    "dist": "$(npm bin)/ncc build index.js -m --license licenses.txt",
+    "lint": "$(npm bin)/eslint .",
+    "test": "$(npm bin)/jest --runInBand"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/levonet/action-TBD.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions"
+  ],
+  "author": "Pavlo Bashynskyi (levonet)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/levonet/action-TBD/issues"
+  },
+  "homepage": "https://github.com/levonet/action-TBD#readme",
+  "dependencies": {
+    "@actions/core": "^1.4.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.29.0",
+    "eslint": "^7.32.0",
+    "jest": "^27.0.6"
+  }
+}
