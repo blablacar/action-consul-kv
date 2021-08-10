@@ -1,6 +1,71 @@
 ---
-name: action-TBD
-description: TBD
+name: Consul KV
+description: Manipulate entries in the key/value store of a Consul cluster
+inputs:
+  state:
+    description: |
+      The action to take with the supplied key and value.
+      If the state is `present` and `value` is set, the key contents will be set to the value supplied and `changed`
+      will be set to `true` only if the value was different to the current contents.
+      If the state is `present` and `value` is not set, the existing value associated to the key will be returned.
+      The state `absent` will remove the key/value pair, again 'changed' will be set to true only
+      if the key actually existed prior to the removal.
+      An attempt can be made to obtain or free the lock associated with a key/value pair with the states `acquire`
+      or attempt changed will be true if the attempt is successful, false otherwise.
+      Possible values are `present`, `absent`, `acquire` and `release` (`acquire` and `release` are experimental).
+    default: present
+  key:
+    description: The key at which the value should be stored.
+    required: yes
+  value:
+    description: The value should be associated with the given key, required if `state` is `present`.
+  host:
+    description: Host of the consul agent.
+    default: localhost
+  port:
+    description: The port on which the consul agent is running.
+    default: '8500'
+  scheme:
+    description: The protocol scheme on which the consul agent is running.
+    default: http
+  ca:
+    description: Trusted certificates in PEM format.
+  dc:
+    description: |
+      The datacenter that this agent will communicate with. By default the datacenter of the host is used.
+  token:
+    description: The token key identifying an ACL rule set that controls access to the key value pair.
+  recurse:
+    description: If the key represents a prefix, each entry with the prefix can be retrieved by setting this to `true`.
+    default: 'false'
+  retrieve:
+    description: If the `state` is `present` and `value` is set, perform a read after setting the value and return this value.
+    default: 'true'
+  session:
+    description:
+      The session that should be used to acquire or release a lock associated with a key/value pair.
+      Experimental.
+  cas:
+    description: |
+      Used when acquiring a lock with a session. If the `cas` is `0`,
+      then Consul will only put the key if it does not already exist.
+      If the `cas` value is non-zero, then the key is only set if the index matches the ModifyIndex of that key.
+      Experimental.
+outputs:
+  changed:
+    description: Returns true if the key or key value has been changed.
+  data:
+    description: |
+      A string label to differentiate this status from the status of other systems.
+      For recursive requests, contains a serialized object with k/v.
+      Optional, returned if the key exists.
+  flags:
+    description: Flags opaque to user, can be used by application. Optional.
+  index:
+    description: ModifyIndex to block and wait for changes. Optional.
 runs:
   using: node12
   main: dist/index.js
+branding:
+  icon: target
+  color: red

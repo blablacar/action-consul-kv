@@ -10,14 +10,36 @@ on:
 jobs:
   unit:
     runs-on: ubuntu-latest
+    services:
+      consul:
+        image: consul:latest
+        ports:
+        - 8500:8500/tcp
     steps:
     - uses: actions/checkout@v2
     - run: yarn install
     - run: yarn run lint
-    # - run: yarn test
+    - run: yarn test
 
   test:
     runs-on: ubuntu-latest
+    services:
+      consul:
+        image: consul:latest
+        ports:
+        - 8500:8500/tcp
     steps:
     - uses: actions/checkout@v2
-    - uses: ./
+    - name: Set value
+      uses: ./
+      with:
+        key: foo
+        value: bar
+    - name: Get value
+      uses: ./
+      id: consul
+      with:
+        key: foo
+    - name: Fail action
+      if: ${{ steps.consul.outputs.data != 'bar' }}
+      run: exit 1

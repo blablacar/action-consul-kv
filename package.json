@@ -1,7 +1,7 @@
 {
-  "name": "action-TBD",
+  "name": "action-consul-kv",
   "version": "0.0.0",
-  "description": "TBD",
+  "description": "GitHub Action that manipulate entries in the key/value store of a consul cluster",
   "main": "dist/index.js",
   "scripts": {
     "dist": "$(npm bin)/ncc build index.js -m --license licenses.txt",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/levonet/action-TBD.git"
+    "url": "git+https://github.com/levonet/action-consul-kv.git"
   },
   "keywords": [
     "GitHub",
@@ -19,11 +19,12 @@
   "author": "Pavlo Bashynskyi (levonet)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/levonet/action-TBD/issues"
+    "url": "https://github.com/levonet/action-consul-kv/issues"
   },
-  "homepage": "https://github.com/levonet/action-TBD#readme",
+  "homepage": "https://github.com/levonet/action-consul-kv#readme",
   "dependencies": {
-    "@actions/core": "^1.4.0"
+    "@actions/core": "^1.4.0",
+    "consul": "https://github.com/silas/node-consul.git#main"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.29.0",
