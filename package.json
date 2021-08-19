@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/levonet/action-consul-kv.git"
+    "url": "git+https://github.com/blablacar/action-consul-kv.git"
   },
   "keywords": [
     "GitHub",
@@ -19,9 +19,9 @@
   "author": "Pavlo Bashynskyi (levonet)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/levonet/action-consul-kv/issues"
+    "url": "https://github.com/blablacar/action-consul-kv/issues"
   },
-  "homepage": "https://github.com/levonet/action-consul-kv#readme",
+  "homepage": "https://github.com/blablacar/action-consul-kv#readme",
   "dependencies": {
     "@actions/core": "^1.4.0",
     "consul": "https://github.com/silas/node-consul.git#main"
