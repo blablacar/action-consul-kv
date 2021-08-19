@@ -12,14 +12,14 @@ See [KV Store](https://www.consul.io/api-docs/kv) for more details.
 
 ```yml
 - name: Set value
-  uses: levonet/action-consul-kv@master
+  uses: blablacar/action-consul-kv@master
   with:
     key: foo
     value: bar
 
 - name: Get value
   id: consul
-  uses: levonet/action-consul-kv@master
+  uses: blablacar/action-consul-kv@master
   with:
     key: foo
 
