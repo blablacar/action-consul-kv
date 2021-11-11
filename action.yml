@@ -1,5 +1,5 @@
 ---
-name: Consul KV
+name: Consul KV Actions
 description: Manipulate entries in the key/value store of a Consul cluster
 inputs:
   state:
