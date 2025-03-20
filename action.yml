@@ -64,7 +64,7 @@ outputs:
   index:
     description: ModifyIndex to block and wait for changes. Optional.
 runs:
-  using: node12
+  using: node20
   main: dist/index.js
 branding:
   icon: target
