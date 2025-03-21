@@ -1,5 +1,9 @@
 # GitHub Action: Manipulate entries in the key/value store of a Consul cluster
 
+> ⚠️ This code is no longer maintained.
+> We'd love it if you fork it and continue developing this action.
+> Otherwise, you can use the author's fork [levonet/action-consul-kv](https://github.com/levonet/action-consul-kv).
+
 Allows the retrieval, addition, modification and deletion of key/value entries in a Consul cluster via the agent or server.
 The entire contents of the record, including the indices, flags and session are returned as `value`.
 
